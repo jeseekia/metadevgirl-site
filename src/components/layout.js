@@ -25,7 +25,7 @@ const Layout = ({ children }) => {
 
   return (
     <>
-      <Header siteTitle={data.site.siteMetadata.title} />
+      <Header headerText={data.site.siteMetadata.title} arbitraryPhrase="Enjoy the site" />
       <div
         style={{
           margin: `0 auto`,
