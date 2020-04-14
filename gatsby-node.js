@@ -1,41 +1,43 @@
-/**
- * Implement Gatsby's Node APIs in this file.
- *
- * See: https://www.gatsbyjs.org/docs/node-apis/
- */
+const path = require(`path`)
+const { createFilePath } = require(`gatsby-source-filesystem`)
 
- const path = require(`path`)
- const { slash } = require(`gatsby-core-utils`)
+exports.onCreateNode = ({ node, getNode, actions }) => {
+  const { createNodeField } = actions
+  if (node.internal.type === `MarkdownRemark`) {
+    const slug = createFilePath({ node, getNode, basePath: `pages` })
+    createNodeField({
+      node,
+      name: `slug`,
+      value: slug,
+    })
+  }
+}
 
- exports.createPages = async ({ graphql, actions }) => {
-   const { createPage } = actions
+exports.createPages = async ({ graphql, actions }) => {
+  const { createPage } = actions
+  const result = await graphql(`
+    query {
+      allMarkdownRemark {
+        edges {
+          node {
+            fields {
+              slug
+            }
+          }
+        }
+      }
+    }
+  `)
 
-   // query content for WordPress posts
-   const result = await graphql(`
-     query {
-       allWordpressPost {
-         edges {
-           node {
-             id
-             slug
-           }
-         }
-       }
-     }
-   `)
-
-   const postTemplate = path.resolve(`./src/templates/post.js`)
-   result.data.allWordpressPost.edges.forEach(edge => {
-     createPage({
-       // will be the url for the page
-       path: edge.node.slug,
-       // specify the component template of your choice
-       component: slash(postTemplate),
-       // In the ^template's GraphQL query, 'id' will be available
-       // as a GraphQL variable to query for this posts's data.
-       context: {
-         id: edge.node.id,
-       },
-     })
-   })
- }
+  result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+    createPage({
+      path: node.fields.slug,
+      component: path.resolve(`./src/templates/blog-post.js`),
+      context: {
+        // Data passed to context is available
+        // in page queries as GraphQL variables.
+        slug: node.fields.slug,
+      },
+    })
+  })
+}
