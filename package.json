@@ -27,6 +27,7 @@
     "typography-theme-kirkham": "^0.16.19"
   },
   "devDependencies": {
+    "gh-pages": "^2.2.0",
     "prettier": "^1.19.1"
   },
   "repository": {
@@ -35,5 +36,8 @@
   },
   "bugs": {
     "url": "https://github.com/gatsbyjs/gatsby/issues"
+  },
+  "scripts": {
+    "deploy": "gatsby build && gh-pages -d public -b master"
   }
 }
