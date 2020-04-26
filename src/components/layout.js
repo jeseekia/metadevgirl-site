@@ -16,7 +16,7 @@ export default ({ children }) => {
     `
   )
   return (
-    <div
+    <main
       css={css`
         margin: 0 auto;
         max-width: 700px;
@@ -24,6 +24,7 @@ export default ({ children }) => {
         padding-top: ${rhythm(1.5)};
       `}
     >
+    <header>
       <Link to={`/`}>
         <h3
           css={css`
@@ -43,7 +44,42 @@ export default ({ children }) => {
       >
         About
       </Link>
+    </header>
       {children}
-    </div>
+    <footer>
+      <ul>
+        <li>
+          <Link
+            to={`http://twitch.tv/metadevgirl`}
+            css={css`
+
+          `}
+          >
+          Twitch
+          </Link>
+        </li>
+        <li>
+          <Link
+            to={`http://instagram.com/metadevgirl`}
+            css={css`
+
+          `}
+          >
+          Instagram
+          </Link>
+        </li>
+        <li>
+          <Link
+            to={`http://twitter.com/metadevgirl`}
+            css={css`
+
+          `}
+          >
+          Twitter
+          </Link>
+        </li>
+      </ul>
+    </footer>
+    </main>
   )
 }

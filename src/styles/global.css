@@ -2,9 +2,45 @@ html {
   background-color: lavenderblush;
 }
 p {
-  color: maroon;
+  /* color: maroon; */
+  background-color: #e64875;
 }
 
 body {
   background-image: url("email-pattern.png");
+  height: 100vh;
 }
+
+main {
+  width: 80vw;
+}
+footer {
+  height: 50px;
+  position: absolute;
+  width: 596px;
+  background-color: #e64875;
+  bottom: 0;
+}
+
+footer ul {
+  list-style: none;
+}
+footer li {
+  display: inline;
+  width: 200px;
+  margin: 0 59px;
+}
+a {
+  color: #61c0bf;
+}
+a:visited {
+  color: #beff0a;
+}
+
+
+/*colors*/
+/*
+#beff0a - lime
+#e64875 - pink
+#61c0bf - blue
+*/

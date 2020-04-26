@@ -3,6 +3,7 @@ import { css } from "@emotion/core"
 import { Link, graphql } from "gatsby"
 import { rhythm } from "../utils/typography"
 import Layout from "../components/layout"
+// import Twitch from "../components/twitch"
 
 export default ({ data }) => {
   return (
@@ -16,6 +17,9 @@ export default ({ data }) => {
         >
           MetaDevGirl
         </h1>
+        {
+          //<Twitch></Twitch>
+        }
         <h4>{data.allMarkdownRemark.totalCount} Posts</h4>
         {data.allMarkdownRemark.edges.map(({ node }) => (
           <div key={node.id}>
