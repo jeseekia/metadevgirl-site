@@ -8,7 +8,7 @@ import Layout from "../components/layout"
 export default ({ data }) => {
   return (
     <Layout>
-      <div>
+      <div id="page-content">
         <h1
           css={css`
             display: inline-block;
@@ -22,7 +22,7 @@ export default ({ data }) => {
         }
         <h4>{data.allMarkdownRemark.totalCount} Posts</h4>
         {data.allMarkdownRemark.edges.map(({ node }) => (
-          <div key={node.id}>
+          <div class="blog-preview" key={node.id}>
             <Link
               to={node.fields.slug}
               css={css`

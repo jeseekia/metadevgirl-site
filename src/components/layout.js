@@ -1,6 +1,7 @@
 import React from "react"
 import { css } from "@emotion/core"
 import { useStaticQuery, Link, graphql } from "gatsby"
+import githubLogo from "../images/github-logo.png"
 
 import { rhythm } from "../utils/typography"
 export default ({ children }) => {
@@ -16,11 +17,11 @@ export default ({ children }) => {
     `
   )
   return (
-    <main
+    <div
       css={css`
         margin: 0 auto;
-        max-width: 700px;
-        padding: ${rhythm(2)};
+        max-width: 80vw;
+        /* padding: ${rhythm(2)}; */
         padding-top: ${rhythm(1.5)};
       `}
     >
@@ -45,41 +46,38 @@ export default ({ children }) => {
         About
       </Link>
     </header>
+    <main>
       {children}
+    </main>
     <footer>
       <ul>
         <li>
-          <Link
-            to={`http://twitch.tv/metadevgirl`}
-            css={css`
-
-          `}
-          >
-          Twitch
-          </Link>
+          <a href="http://twitch.tv/metadevgirl" target="_blank" rel="noopener noreferrer">
+            Twitch
+          </a>
         </li>
         <li>
-          <Link
-            to={`http://instagram.com/metadevgirl`}
-            css={css`
-
-          `}
-          >
-          Instagram
-          </Link>
+          <a href="http://instagram.com/metadevgirl" target="_blank" rel="noopener noreferrer">
+            Instagram
+          </a>
         </li>
         <li>
-          <Link
-            to={`http://twitter.com/metadevgirl`}
-            css={css`
-
-          `}
-          >
-          Twitter
-          </Link>
+          <a href="http://twitter.com/metadevgirl" target="_blank" rel="noopener noreferrer">
+            Twitter
+          </a>
+        </li>
+        <li>
+          <a href="http://linkedin.com/in/jeseekiavaughn" target="_blank" rel="noopener noreferrer">
+            LinkedIn
+          </a>
+        </li>
+        <li>
+          <a href="http://github.com/jeseekia" target="_blank" rel="noopener noreferrer">
+            Github
+          </a>
         </li>
       </ul>
     </footer>
-    </main>
+    </div>
   )
 }

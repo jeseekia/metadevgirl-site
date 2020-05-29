@@ -1,25 +1,50 @@
 html {
-  background-color: lavenderblush;
+  /* background-color: lavenderblush; */
+}
+
+h1,h2,h3,h4,h5,h6 {
+
 }
 p {
   /* color: maroon; */
-  background-color: #e64875;
+  /* background-color: #e64875; */
 }
 
 body {
-  background-image: url("email-pattern.png");
+  background-color: #e64875;
   height: 100vh;
+  width: 100vw;
 }
 
 main {
-  width: 80vw;
+  /* width: 80vw; */
+  padding: 10vw;
+  background-image: url("email-pattern.png");
 }
-footer {
-  height: 50px;
-  position: absolute;
-  width: 596px;
-  background-color: #e64875;
-  bottom: 0;
+
+main a {
+  color: black;
+}
+
+main a:visited {
+  color: black;
+}
+
+.blog-preview {
+  width: 46%;
+  margin-top: 2%;
+  margin-bottom: 2%;
+  display: inline-block;
+  border: solid 1px;
+  padding: 1.5%;
+}
+
+.blog-preview:nth-child(odd) {
+  margin-right: 2%;
+}
+
+.blog-preview:nth-child(even) {
+  margin-left: 2%;
 }
 
 footer ul {
